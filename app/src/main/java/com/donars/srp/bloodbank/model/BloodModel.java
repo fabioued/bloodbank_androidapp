@@ -20,8 +20,8 @@ public class BloodModel {
     double Latitude;
     @SerializedName("Longitude")
     double Longitude;
-
-    public BloodModel(double longitude, String address, String name, String hop_name, String blood_group, int quantity, double latitude) {
+    String Patient_id;
+    public BloodModel(double longitude, String address, String name, String hop_name, String blood_group, int quantity, double latitude,String patient_id) {
         Longitude = longitude;
         this.address = address;
         this.name = name;
@@ -29,6 +29,11 @@ public class BloodModel {
         this.blood_group = blood_group;
         this.quantity = quantity;
         Latitude = latitude;
+        Patient_id=patient_id;
+    }
+
+    public String getPatient_id() {
+        return Patient_id;
     }
 
     public double getLatitude() {

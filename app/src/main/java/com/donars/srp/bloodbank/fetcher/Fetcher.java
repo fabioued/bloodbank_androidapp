@@ -13,12 +13,16 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 
 public class Fetcher {
@@ -42,6 +46,13 @@ public class Fetcher {
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
+            OutputStream outputStream=httpURLConnection.getOutputStream();
+            BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"iso-8859-1"));
+            String data= URLEncoder.encode("blood_grp","UTF-8")+"="+URLEncoder.encode(Details.user.getBlood_GRP(),"UTF-8");
+            bufferedWriter.write(data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStream.close();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
             String line = "", res = "";
@@ -73,36 +84,14 @@ public class Fetcher {
         //  Toast.makeText(getApplicationContext(), te, Toast.LENGTH_LONG).show();
 
         Gson gson = new Gson();
-            /*
-                JSONObject jsonObject = null;
-                try {
-                    jsonObject = new JSONObject(te);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
-                JSONArray jsonArray = null;
-                try {
-                    jsonArray = jsonObject.getJSONArray("result");
-                    Log.d("te", jsonArray.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                Type listType = new TypeToken<List<BloodModel>>() {
-                }.getType();
-                // Type collectionType = new TypeToken<List<NavItem>>() {
-
-                //  List<NavItem> navigation = gson.fromJson(jsonString, collectionType);
-
-              //  posts=(List<BloodModel>)gson.fromJson(jsonArray.toString(),listType);
-                // t1.setText(te);
-
-            }*/
-        Type type = new TypeToken<List<BloodModel>>() {
-        }.getType();
-        detailsList = gson.fromJson(te, type);
+        try {
+            Type type = new TypeToken<List<BloodModel>>() {
+            }.getType();
+            detailsList = gson.fromJson(te, type);
+        }
+        catch (Exception e)
+        {e.printStackTrace();}
         MapsActivity.addExtraMarkers();
     }
 }

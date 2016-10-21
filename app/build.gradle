@@ -28,14 +28,17 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.6.0@aar') {
         transitive = true
     }
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    //compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
 
+    // (v4.5)
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.google.android.gms:play-services-maps:9.6.1'
+    compile 'com.google.android.gms:play-services-location:9.6.1'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.roughike:bottom-bar:2.0.2'
 
-    compile 'com.google.android.gms:play-services-maps:9.4.0'
-    compile 'com.google.android.gms:play-services-location:9.4.0'
-    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2' // (v4.5)
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

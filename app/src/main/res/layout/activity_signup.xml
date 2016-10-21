@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_1"
-            android:text="@string/sign_up"
-            android:textColor="@color/blue"
-            android:textSize="30sp"
+            android:text="Sign up"
+            android:textColor="@color/md_red_400"
+            android:textSize="20sp"
             android:gravity="center"/>
 
         <!-- Name Label -->
@@ -27,12 +27,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
-                android:hint="Name" />
+                android:hint="Name"
+
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!--  Email Label -->
@@ -40,12 +44,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:hint="Email"
+
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -53,32 +61,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="Password"
+
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
+        </android.support.design.widget.TextInputLayout>
+        <!-- Phone Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
+            <EditText android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Phone"
+
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <RadioGroup
             android:id="@+id/radioSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Gender"
+                android:gravity="left"
+                android:textSize="16sp"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"
+                />
             <RadioButton
                 android:id="@+id/radioMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/radio_male"
-                android:checked="true" />
+                android:checked="true"
+                android:textColor="@color/md_red_300"/>
 
             <RadioButton
                 android:id="@+id/radioFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radio_female" />
+                android:text="@string/radio_female"
+                android:textColor="@color/md_red_300"/>
 
         </RadioGroup>
         <!-- Blood Group-->
@@ -88,24 +129,35 @@
             android:layout_marginBottom="24dp"
             android:text="@string/blood_group"
             android:gravity="left"
-            android:textSize="16dip"/>
+            android:textSize="16dip"
+
+            android:textColorHint="@color/md_red_300"
+            android:textColor="@color/md_red_300"
+            />
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/blood_group"
-            android:prompt="@string/blood_prompt" />
+            android:prompt="@string/blood_prompt"
+            android:background="@color/md_red_100"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            />
         <!-- Address Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Address"/>
+                android:hint="Address"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Address Label -->
@@ -113,12 +165,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_lastd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Last Donation"/>
+                android:hint="Last Donation"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
         <!-- Signup Button -->
         <android.support.v7.widget.AppCompatButton
@@ -129,7 +184,9 @@
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Create Account"
-            android:clickable="false" />
+            android:clickable="false"
+            android:background="@color/md_red_300"
+            android:textColor="@color/white"/>
 
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
@@ -137,7 +194,8 @@
             android:layout_marginBottom="24dp"
             android:text="Already a member? Login"
             android:gravity="center"
-            android:textSize="16dip"/>
-
+            android:textSize="16dip"
+            android:textColor="@color/md_red_400"
+/>
     </LinearLayout>
 </ScrollView>

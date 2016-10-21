@@ -15,10 +15,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
+        <uses-library android:name="com.google.android.maps" />
+
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +36,10 @@
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".RequestBlood"
-            android:theme="@style/AppTheme.Dark" />
+            android:theme="@style/AppTheme.Dark"
+
+            android:parentActivityName=".MapsActivity"
+            />
         <activity
             android:name=".InsertBloodDetails"
             android:theme="@style/AppTheme.Dark" />
@@ -51,25 +57,35 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".UserStats" />
-        <activity android:name=".BloodDonationActivity" />
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity android:name=".UserStats"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:parentActivityName=".MapsActivity"/>
+        <activity
+            android:name=".BloodDonationActivity"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:parentActivityName=".RequestBlood"
+            />
         <activity
             android:name=".HospLogin"
             android:label="@string/title_activity_hosp_login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HospActivity"
-            android:label="@string/title_activity_hosp"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".HospSignup"
             android:label="@string/title_activity_hosp_signup"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".RequestBloodHosp"
             android:label="@string/title_activity_request_blood_hosp"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Hosp2Activity"
+            android:label="@string/title_activity_hosp2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HelpActivity"
+            android:theme="@style/AppTheme.NoActionBar1"
+            android:parentActivityName=".MapsActivity"/>
     </application>
 
 </manifest>

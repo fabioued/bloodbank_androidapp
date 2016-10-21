@@ -23,6 +23,15 @@ public class User {
     String Address;
     @SerializedName("lastdonation")
     String lastdonation;
+    String phone;
+
+    public String getLastdonation() {
+        return lastdonation;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 
     public String getName() {
         return name;
@@ -52,7 +61,7 @@ public class User {
         return lastdonation;
     }
 
-    public User(String name, String username, String password, String blood_GRP, String gender, String address, String timestamp) {
+    public User(String name, String username, String password, String blood_GRP, String gender, String address, String timestamp,String phone) {
         this.name = name;
         Username = username;
         Password = password;
@@ -60,5 +69,6 @@ public class User {
         Gender = gender;
         Address = address;
         lastdonation = timestamp;
+        this.phone=phone;
     }
 }

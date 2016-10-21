@@ -3,6 +3,7 @@ package com.donars.srp.bloodbank;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.donars.srp.bloodbank.fetcher.Details;
@@ -29,6 +30,12 @@ public class UserStats extends AppCompatActivity {
         setContentView(R.layout.activity_user_stats);
         ButterKnife.bind(this);
         init();
+        final Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
     public void init()
     {

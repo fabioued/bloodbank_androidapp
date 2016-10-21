@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/bg_login">
+    android:background="@color/accent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_1"
-            android:text="@string/sign_up"
-            android:textColor="@color/blue"
+            android:text="Sign up"
+            android:textColor="@color/md_red_400"
             android:textSize="30sp"
             android:gravity="center"/>
 
@@ -28,12 +28,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
-                android:hint="Hospital Name" />
+                android:hint="Hospital Name"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!--  Email Label -->
@@ -41,12 +44,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:hint="Email"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!--  Cheif doc Label -->
@@ -54,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_chief_doc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,12 +74,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300"
+            >
             <EditText android:id="@+id/input_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Phone No" />
+                android:hint="Phone No"
+                android:textColor="@color/md_red_300"
+                android:textColorHint="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -80,12 +91,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="Password"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Address Label -->
@@ -93,12 +107,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
             <EditText android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Address"/>
+                android:hint="Address"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->
@@ -110,7 +127,9 @@
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Create Account"
-            android:clickable="false" />
+            android:clickable="false"
+            android:textColor="@color/accent"
+            android:background="@color/md_red_300"/>
 
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
@@ -118,6 +137,7 @@
             android:layout_marginBottom="24dp"
             android:text="Already a member? Login"
             android:gravity="center"
+            android:textColor="@color/md_red_300"
             android:textSize="16dip"/>
 
     </LinearLayout>

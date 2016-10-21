@@ -48,6 +48,7 @@ public class RequestBloodHosp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_blood_hosp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Request Blood");
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
         _inputblood.setFilters(new InputFilter[]{new InputFilterMinMax(1,7)});

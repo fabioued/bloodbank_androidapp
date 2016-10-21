@@ -4,13 +4,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="life_saver">Life Saver</string>
-    <string name="sign_up">Sign up</string>
     <string name="radio_male">male</string>
     <string name="radio_female">female</string>
     <string name="blood_prompt">Choose a Blood Group</string>
     <string name="blood_group">Blood Group</string>
     <string name="drawer_item_list">List View</string>
     <string name="drawer_item_map">Map View</string>
+    <string name="drawer_open">Maps</string>
+    <string name="drawer_close">Maps</string>
     <string-array name="blood_group">
         <item>A+ve</item>
         <item>A-ve</item>
@@ -31,4 +32,29 @@
     <string name="title_activity_hosp">HospActivity</string>
     <string name="title_activity_hosp_signup">HospSignup</string>
     <string name="title_activity_request_blood_hosp">RequestBloodHosp</string>
+    <string name="title_activity_hosp2">Hosp2Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logout">Logout</string>
+    <string name="sign_up">Dont have an account already?Signup here</string>
+    <string name="help">
+
+
+DURING DONATION
+
+Giving blood takes just 5-10 minutes but you should allow about an hour from arrival to departure, which includes time for your interview and refreshments.
+        BEFORE DONATING BLOOD
+
+Eat something substantial before your appointment. This might be cereal and toast for breakfast, or a sandwich at lunchtime. Please don’t come in on an empty stomach…
+
+DURING DONATION
+
+Giving blood takes just 5-10 minutes but you should allow about an hour from arrival to departure, which includes time for your interview and refreshments.
+    </string>
+    <string name="beforedonating">Eat something substantial before your appointment. This might be cereal and toast for breakfast, or a sandwich at lunchtime. Please don’t come in on an empty stomach…</string>
+    <string name="duringdonation">Giving blood takes just 5-10 minutes but you should allow about an hour from arrival to departure, which includes time for your interview and refreshments.</string>
+    <string name="afterdonating">The donor needs rest, preferably lying down, so that the amount of blood that has been donated soon gets poured into the circulation from the body pools in a natural way. The donor should take it easy for about 15 – 20 minutes.</string>
+    <string name="healthydonar">Any person within the age group of 18 – 60 years with a body weight as minimum 45 kgs, and having hemoglobin content as minimum 12.5 gm%.</string>
 </resources>

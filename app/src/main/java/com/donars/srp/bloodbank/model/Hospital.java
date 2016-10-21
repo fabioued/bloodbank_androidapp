@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Hospital {
     //[{"name":"sai","username":"sai","password":"sai","chiefdoctor":"sai","phone":"52525252","address":"saiasi","latitude":"0.00","longitude":"0.00"}]
-    String name,username,password,chiefdoctor,phone,address,latitude,longitude;
+    private String name,username,password,chiefdoctor,phone,address,latitude,longitude;
 
     public String getName() {
         return name;

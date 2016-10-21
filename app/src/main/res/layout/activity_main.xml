@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,43 +8,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/light_blue"
-    tools:context=".MainActivity"
-    android:weightSum="1">
-
-<android.support.v7.widget.AppCompatTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/welcome"
-    android:layout_gravity="center"
-    style="@android:style/TextAppearance.DeviceDefault.Large"
-    android:paddingTop="30dp"
-    android:textColor="@color/white"
-    android:textSize="36sp" />
-
-    <Button
-        android:layout_width="149dp"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_user"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:text="@string/user"
-        android:layout_weight="0.07"
-        android:background="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="25sp"
-        android:textColor="@color/light_blue"
-        android:onClick="UserIntent" />
-
-    <Button
+        app:srcCompat="@drawable/life"
+        android:id="@+id/imageView"
+        android:layout_weight="3" />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_hosp"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:text="@string/hospital"
-        android:layout_weight="0.05"
-        android:layout_width="149dp"
-        android:background="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="25sp"
-        android:textColor="@color/light_blue"
-        android:onClick="HospIntent" />
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="152dp"
+            android:layout_height="61dp"
+            android:id="@+id/btn_user"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="fill_vertical|center"
+            android:text="@string/user"
+            android:background="@color/md_red_500"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:onClick="UserIntent"/>
+
+        <Button
+            android:layout_height="61dp"
+            android:id="@+id/btn_hosp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="fill_vertical|center"
+            android:text="@string/hospital"
+            android:layout_width="match_parent"
+            android:background="@color/md_red_500"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:onClick="HospIntent" />
+</LinearLayout>
 </LinearLayout>

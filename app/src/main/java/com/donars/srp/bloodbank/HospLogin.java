@@ -1,5 +1,6 @@
 package com.donars.srp.bloodbank;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,8 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.donars.srp.bloodbank.fetcher.Details;
+import com.donars.srp.bloodbank.fetcher.NotificationFetcher;
 import com.donars.srp.bloodbank.model.Hospital;
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +35,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -54,7 +58,7 @@ public class HospLogin extends AppCompatActivity {
     ListView list;
     @BindView(R.id.link_signup)
     TextView _signupLink;
-
+    ProgressDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +68,7 @@ public class HospLogin extends AppCompatActivity {
         uname = (EditText) findViewById(R.id.uname);
         pass = (EditText) findViewById(R.id.pass);
         b = (Button) findViewById(R.id.btn_login);
-
+        progress=new ProgressDialog(this);
         ButterKnife.bind(this);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,47 +98,18 @@ public class HospLogin extends AppCompatActivity {
 
     }
 
-    public int showList() {
-        try {
-            JSONObject jsonObj = new JSONObject(myJSON);
-            myJSON = "";
-            peoples = jsonObj.getJSONArray("result");
-            // Toast.makeText(getApplicationContext(),"reached json",Toast.LENGTH_LONG).show();
-            //t1.setText("");
-            if (peoples.length() >= 1) {
-                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
-                Intent log = new Intent(this, MainActivity.class);
-                startActivity(log);
-            } else
-                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_LONG).show();
-            for (int i = 0; i < peoples.length(); i++) {
-
-                JSONArray c = peoples.getJSONArray(i);
-                for (int k = 0; k < c.length(); k++) {
-                    JSONObject m = c.getJSONObject(k);
-                    if ((k + 3) % 3 == 0) {
-                        id = m.getString("id");
-                    } else if ((k + 3) % 3 == 1) {
-                        name = m.getString("name");
-                    } else {
-                        address = m.getString("address");
-                    }
-                }
-                // t1.setText("id="+id+"\n"+"name="+name+"\n"+"address="+address+"\nh\ny\ny\nj\nt\nt\nr\nt\nf\ne\nt\nl\ne");
-            }
-            /*ListAdapter adapter = new SimpleAdapter(
-                   MainActivity.this, personList, R.layout.list_item,
-                    new String[]{TAG_ID,TAG_NAME,TAG_ADD}, new int[]{R.id.id, R.id.name, R.id.address}
-            );
-            list.setAdapter(adapter);*/
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
     public void getData() {
         class GetDataJSON extends AsyncTask<String, Void, Boolean> {
+            @Override
+            protected void onPreExecute() {
+                res="";
+
+                progress.setMessage("Logging in");
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progress.setIndeterminate(true);
+                progress.show();
+            }
+
             @Override
             protected Boolean doInBackground(String... params) {
                 try {
@@ -164,9 +139,10 @@ public class HospLogin extends AppCompatActivity {
                         } else
                             result = false;
                         res = res + line;
-                        Log.d("res", line);
+
                     }
                     res = res.substring(0, res.indexOf("<"));
+
                     bufferedReader.close();
                     inputStream.close();
                     httpURLConnection.disconnect();
@@ -182,20 +158,28 @@ public class HospLogin extends AppCompatActivity {
 //                myJSON=te;
 //                //t1.setText(myJSON);
 //                res="";
-                Log.d("resulttt", te + "");
-                Toast.makeText(getApplicationContext(), "return" + te, Toast.LENGTH_LONG).show();
-                if (res.length()>0) {
+                Log.d("resulttt", te + "" +res);
+          //      Toast.makeText(getApplicationContext(), "return" + te, Toast.LENGTH_LONG).show();
+                if (res.length()>0 && !res.equalsIgnoreCase("Failure")) {
                     //Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_LONG).show();
-                    Gson gson =new Gson();
-                    Details.hospital=gson.fromJson(res,Hospital.class);
-                    System.out.println(gson.toJson(Details.hospital)+Details.hospital.getAddress());
-                    startActivity(new Intent(HospLogin.this, HospActivity.class));
+                    try {
+                        Gson gson = new Gson();
+                        JsonReader jsonReader=new JsonReader(new StringReader(res));
+                        Details.hospital = gson.fromJson(jsonReader, Hospital.class);
+                        System.out.println(gson.toJson(Details.hospital) + Details.hospital.getAddress());
+                        Log.d("res", res);
+                    }
+                    catch (Exception e){e.printStackTrace();}
+
+                    startActivity(new Intent(HospLogin.this, Hosp2Activity.class));
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
                     //finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_LONG).show();
+                    b.setError("Wrong username or password");
                     //   startActivity(new Intent(LoginActivity.this, RequestBlood.class));
                 }
+                progress.dismiss();
 //                la=showList();
 //                if (te != null) return te;
 //                // t1.setText(te);

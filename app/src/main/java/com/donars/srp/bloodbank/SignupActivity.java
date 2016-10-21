@@ -52,12 +52,13 @@ public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
     @BindView(R.id.input_lastd) TextView _address;
-        RadioGroup radioSexGroup;
+    @BindView(R.id.input_phone) TextView _phone;
 
-    String gender,name,pass,email,myJSON,res,blood_grp,address;
-    Integer la;
-    JSONArray peoples;
+    RadioGroup radioSexGroup;
+
+    String gender,name,pass,email,myJSON,res,blood_grp,address,phone;
     Spinner spinner;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +104,7 @@ public class SignupActivity extends AppCompatActivity {
         email = _emailText.getText().toString();
         pass = _passwordText.getText().toString();
         address=_address.getText().toString();
+        phone=_phone.getText().toString();
         // get selected radio button from radioGroup
         int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
@@ -111,7 +113,7 @@ public class SignupActivity extends AppCompatActivity {
 
         gender=radioSexButton.getText().toString();
 
-        // TODO: Implement your own signup logic here.
+        // TODO: Implement your own signup logic here .
         blood_grp = spinner.getSelectedItem().toString();
 
         Log.d("request ",name+email+pass+address+gender+blood_grp);
@@ -130,8 +132,10 @@ public class SignupActivity extends AppCompatActivity {
 
 
     public void onSignupSuccess() {
-        _signupButton.setEnabled(true);
-        getData();
+        if(validate()) {
+            _signupButton.setEnabled(true);
+            getData();
+        }
     }
 
     public void onSignupFailed() {
@@ -167,7 +171,6 @@ public class SignupActivity extends AppCompatActivity {
         } else {
             _passwordText.setError(null);
         }
-
         return valid;
     }
 
@@ -188,7 +191,7 @@ public class SignupActivity extends AppCompatActivity {
                             +URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode(gender,"UTF-8")+"&"
                             +URLEncoder.encode("username","UTF-8")+"="+URLEncoder.encode(email,"UTF-8")+"&"
                             +URLEncoder.encode("blood_group","UTF-8")+"="+URLEncoder.encode(blood_grp,"UTF-8")+"&"
-                           // +URLEncoder.encode("las","UTF-8")+"="+URLEncoder.encode(mobile,"UTF-8")+"&"
+                            +URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(phone,"UTF-8")+"&"
                             +URLEncoder.encode("address","UTF-8")+"="+URLEncoder.encode(address,"UTF-8");
 
                     bufferedWriter.write(data);

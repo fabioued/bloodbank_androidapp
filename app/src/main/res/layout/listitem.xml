@@ -3,117 +3,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/md_cyan_900"
-    android:padding="@dimen/activity_horizontal_margin">
+
+    android:baselineAligned="false"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@color/accent"
+    >
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
-    <TextView
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/hospital"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hospital Name:"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="2dp"/>
+        android:orientation="vertical">
       <TextView
         android:id="@+id/item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
         android:padding="2dp"
-        android:textColor="#33CC33"
+        android:textColor="@color/asbestos"
         />
+
+        <TextView
+            android:id="@+id/item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+           android:padding="2dp"
+            android:textColor="@color/asbestos"/>
+        </LinearLayout>
 </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:id="@+id/image_blood"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.2"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+
         <TextView
+            android:id="@+id/item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hospital Address:"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:padding="2dp"/>
-    <TextView
-        android:id="@+id/item1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="2dp"
-        android:textColor="#33CC33"/>
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="4dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/asbestos"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp" />
     </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Blood Group:"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"/>
-    <TextView
-        android:id="@+id/item2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="2dp"
-        android:textColor="#33CC33"/>
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Blood units:"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:padding="2dp"/>
-    <TextView
-        android:id="@+id/item3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="2dp"
-        android:textColor="#33CC33"/>
-            </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Patient Name:"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:padding="2dp"/>
-    <TextView
-        android:id="@+id/item4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="2dp"
-        android:textColor="#33CC33"/>
-                    </LinearLayout>
+
 </LinearLayout>
