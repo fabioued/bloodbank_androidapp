@@ -1,13 +1,16 @@
 package com.donars.srp.bloodbank;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -16,7 +19,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.donars.srp.bloodbank.fetcher.Details;
 import com.donars.srp.bloodbank.fetcher.Fetcher;
@@ -47,17 +55,28 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleApiClient.ConnectionCallbacks {
 
     private static GoogleMap mMap;
     PrimaryDrawerItem item1;
-    PrimaryDrawerItem itemstats, itemsignout,helpitem;
+    PrimaryDrawerItem itemstats, itemsignout,helpitem,notifyitem;
     static ArrayList<Marker> markerList;
     /* GPS Constant Permission */
     private static final int MY_PERMISSION_ACCESS_COARSE_LOCATION = 11;
     private static final int MY_PERMISSION_ACCESS_FINE_LOCATION = 12;
+    MapView mapView;
 
     GoogleApiClient mGoogleApiClient;
     Toolbar toolbar;
@@ -67,9 +86,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
         Iconify.with(new FontAwesomeModule());
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        MapView mapView=(MapView)findViewById(R.id.mapView);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -80,6 +99,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         itemstats = new PrimaryDrawerItem().withIdentifier(2).withName("Your Stats").withTextColor(getResources().getColor(R.color.colorAccent)).withIcon(new IconDrawable(this, FontAwesomeIcons.fa_bar_chart));
         itemsignout = new PrimaryDrawerItem().withIdentifier(3).withName("Sign out").withTextColor(getResources().getColor(R.color.colorAccent)).withIcon(new IconDrawable(this, FontAwesomeIcons.fa_sign_out));
         helpitem = new PrimaryDrawerItem().withIdentifier(4).withName("Help").withTextColor(getResources().getColor(R.color.colorAccent)).withIcon(new IconDrawable(this, FontAwesomeIcons.fa_life_ring));
+        notifyitem = new PrimaryDrawerItem().withIdentifier(5).withName("Notifications").withTextColor(getResources().getColor(R.color.colorAccent)).withIcon(new IconDrawable(this, FontAwesomeIcons.fa_bell));
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -106,6 +126,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         itemstats,
                         new DividerDrawerItem(),
                         helpitem,
+                        new DividerDrawerItem(),
+                        notifyitem,
                         new DividerDrawerItem(),
                         itemsignout
                 )
@@ -138,6 +160,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                     break;
                                 }
+
+                                case 5: {
+                                    Intent intent = new Intent(MapsActivity.this, Notification.class);
+                                    startActivity(intent);
+
+                                    break;
+                                }
                             }
                         }
                         return false;
@@ -156,7 +185,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .addApi(LocationServices.API)
                     .build();
         }
+
+        //startTimer();
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -249,11 +281,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
             mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!"));
         }
-
     }
 
     @Override
     public void onConnectionSuspended(int i) {
 
     }
+
+
+
 }
+
+

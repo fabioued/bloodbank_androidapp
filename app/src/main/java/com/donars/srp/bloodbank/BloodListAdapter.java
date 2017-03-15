@@ -45,7 +45,7 @@ public class BloodListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return myList.size();
+        return myList==null?0:myList.size();
     }
 
     @Override

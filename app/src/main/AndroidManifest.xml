@@ -3,6 +3,8 @@
     package="com.donars.srp.bloodbank">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <service android:name="com.alexfu.countdownview.core.TimerService" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -36,10 +38,8 @@
             android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".RequestBlood"
-            android:theme="@style/AppTheme.Dark"
-
             android:parentActivityName=".MapsActivity"
-            />
+            android:theme="@style/AppTheme.Dark" />
         <activity
             android:name=".InsertBloodDetails"
             android:theme="@style/AppTheme.Dark" />
@@ -59,14 +59,14 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar1" />
-        <activity android:name=".UserStats"
-            android:theme="@style/AppTheme.NoActionBar1"
-            android:parentActivityName=".MapsActivity"/>
+        <activity
+            android:name=".UserStats"
+            android:parentActivityName=".MapsActivity"
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity
             android:name=".BloodDonationActivity"
-            android:theme="@style/AppTheme.NoActionBar1"
             android:parentActivityName=".RequestBlood"
-            />
+            android:theme="@style/AppTheme.NoActionBar1" />
         <activity
             android:name=".HospLogin"
             android:label="@string/title_activity_hosp_login"
@@ -82,10 +82,19 @@
         <activity
             android:name=".Hosp2Activity"
             android:label="@string/title_activity_hosp2"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HelpActivity"
-            android:theme="@style/AppTheme.NoActionBar1"
-            android:parentActivityName=".MapsActivity"/>
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity
+            android:name=".UserDetails"
+            android:label=""
+        android:theme="@style/Theme.AppCompat.Dialog"
+            android:parentActivityName=".Hosp2Activity"/>
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".MapsActivity"
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity android:name=".Notification"
+            android:parentActivityName=".MapsActivity"
+            android:theme="@style/AppTheme.NoActionBar1"></activity>
     </application>
 
 </manifest>

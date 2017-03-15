@@ -50,7 +50,7 @@ public class HospSignup extends AppCompatActivity {
     EditText _nameCheifDoc;
     @BindView(R.id.input_phone)
     EditText _phoneNo;
-
+    ProgressDialog progressDialog=null;
     String gender,name,pass,email,myJSON,res,address,cheifdoctor,phone;
     Integer la;
     JSONArray peoples;
@@ -89,51 +89,32 @@ public class HospSignup extends AppCompatActivity {
     public void signup() {
         Log.d(TAG, "Signup");
 
-
-        _signupButton.setEnabled(false);
-
-        final ProgressDialog progressDialog = new ProgressDialog(HospSignup.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Creating Account...");
-        progressDialog.show();
-
-        name = _nameText.getText().toString();
-        email = _emailText.getText().toString();
-        pass = _passwordText.getText().toString();
-        address=_address.getText().toString();
-        cheifdoctor=_nameCheifDoc.getText().toString();
-        phone=_phoneNo.getText().toString();
-
-
-        Log.d("request ",name+email+pass+address+gender+cheifdoctor+phone);
-        onSignupSuccess();
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        // onSignupFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
+        if(validate()) {
+            _signupButton.setEnabled(false);
+            getData();
+            System.out.println("Success in validating");
+        }
+        else {
+            onSignupFailed();
+        }
     }
 
 
-    public void onSignupSuccess() {
-        _signupButton.setEnabled(true);
-        getData();
-    }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Please Enter Valid Details", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
     public boolean validate() {
         boolean valid = true;
+
+        name = _nameText.getText().toString();
+        email = _emailText.getText().toString();
+        pass = _passwordText.getText().toString();
+        address = _address.getText().toString();
+        cheifdoctor = _nameCheifDoc.getText().toString();
+        phone = _phoneNo.getText().toString();
 
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
@@ -145,7 +126,25 @@ public class HospSignup extends AppCompatActivity {
         } else {
             _nameText.setError(null);
         }
+        if (cheifdoctor.isEmpty() || cheifdoctor.length() < 3) {
+            _nameCheifDoc.setError("at least 3 characters");
+            valid = false;
+        } else {
+            _nameCheifDoc.setError(null);
+        }
 
+        if (phone.isEmpty() || phone.length() != 10) {
+            _phoneNo.setError("enter a valid phone Number");
+            valid = false;
+        } else {
+            _phoneNo.setError(null);
+        }
+        if (address.isEmpty()) {
+            _address.setError("enter a valid Address");
+            valid = false;
+        } else {
+            _address.setError(null);
+        }
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
             valid = false;
@@ -159,12 +158,24 @@ public class HospSignup extends AppCompatActivity {
         } else {
             _passwordText.setError(null);
         }
-
+        if (valid) {
+            Log.d("request ", name + email + pass + address + gender + cheifdoctor + phone);
+        }
         return valid;
     }
 
     public void getData(){
         class GetDataJSON extends AsyncTask<String, Void, String> {
+            @Override
+            protected void onPreExecute() {
+
+
+                progressDialog = new ProgressDialog(HospSignup.this);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Creating Account...");
+                progressDialog.show();
+            }
+
             @Override
             protected String doInBackground(String... params) {
                 try {
@@ -209,8 +220,10 @@ public class HospSignup extends AppCompatActivity {
                 myJSON=te;
                 //t1.setText(myJSON);
                 res="";
-                Toast.makeText(getApplicationContext(),te,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Signup Successful Please Wait for Validation",Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
                 te="";
+                onBackPressed();
                 // t1.setText(te);
             }
         }
