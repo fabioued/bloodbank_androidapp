@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.donars.srp.bloodbank.BloodDonationActivity">
+    tools:context="com.donars.srp.hosp.BloodDonationActivity">
     <include layout="@layout/toolbar"/>
     <TextView
         android:layout_width="wrap_content"
@@ -140,7 +140,33 @@
             android:padding="2dp"
 
             android:textColor="@color/asbestos"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Approx Arrival Time:"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/monsoon"
+                android:padding="2dp"/>
+
+            <TextView
+                android:id="@+id/item5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="Select Time Here"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/asbestos"/>
     </LinearLayout>
     <!--Submit Button -->
     <android.support.v7.widget.AppCompatButton

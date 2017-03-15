@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="vertical"
+        >
+    <include layout="@layout/toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/accept_layout"
+        android:visibility="invisible"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Request was Accepted"
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel_ap_btn"
+            android:layout_gravity="center"
+            android:text="Cancel Your Request"
+            android:textColor="@color/accent"
+            android:background="@color/md_red_300"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reject_layout"
+        android:visibility="invisible"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Request was Rejected"
+            android:textSize="30sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Request was Rejected"
+            android:id="@+id/feedback"
+            android:textSize="30sp"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer_layout"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiting For Hospital To accept Request:"
+            android:layout_margin="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/monsoon"
+            android:padding="2dp"/>
+    <TextView
+        android:id="@+id/tvRemainingTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="Time Remaining"
+        android:textSize="24sp"/>
+
+    <LinearLayout
+        android:id="@+id/llRemainingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/tvSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:text=":"
+            android:textSize="60sp"/>
+
+        <TextView
+            android:id="@+id/tvSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="60sp"/>
+
+
+        <Button
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel_btn"
+            android:layout_gravity="center"
+            android:text="Cancel Your Request"
+            android:textColor="@color/accent"
+            android:background="@color/md_red_300"
+            />
+    </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

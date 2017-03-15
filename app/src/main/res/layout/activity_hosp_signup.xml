@@ -66,7 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Chief Doctor Name" />
+                android:hint="Chief Doctor Name"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300" />
         </android.support.design.widget.TextInputLayout>
 
         <!--  Phone Label -->
@@ -112,7 +114,7 @@
             <EditText android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:hint="Address"
                 android:textColorHint="@color/md_red_300"
                 android:textColor="@color/md_red_300"/>

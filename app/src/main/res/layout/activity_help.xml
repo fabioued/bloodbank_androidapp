@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_help"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.donars.srp.hosp.HelpActivity">
+<include layout="@layout/toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BEFORE DONATING BLOOD"
+        android:textColor="@color/monsoon"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/beforedonating"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/asbestos"
+        android:layout_margin="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DURING DONATION"
+        android:textColor="@color/monsoon"
+        android:padding="20dp"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/duringdonation"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/asbestos"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AFTER DONATING"
+        android:textColor="@color/monsoon"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/afterdonating"
+        android:textColor="@color/asbestos"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HEALTHY DONOR"
+        android:textColor="@color/monsoon"
+        android:padding="20dp"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/healthydonar"
+        android:textColor="@color/asbestos"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_margin="20dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

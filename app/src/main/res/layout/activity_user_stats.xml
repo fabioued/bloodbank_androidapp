@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/accent"
     android:orientation="vertical"
-    tools:context="com.donars.srp.bloodbank.UserStats">
+    tools:context="com.donars.srp.hosp.UserStats">
     <include layout="@layout/toolbar"/>
     <!-- Name Label -->
     <TextView

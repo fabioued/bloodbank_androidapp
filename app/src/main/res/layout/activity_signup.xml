@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
@@ -45,13 +46,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColorHint="@color/md_red_300">
+            android:textColorHint="@color/md_red_300"
+            app:errorTextAppearance="@style/error_appearance">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
-
                 android:textColorHint="@color/md_red_300"
                 android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
@@ -154,24 +155,85 @@
             <EditText android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:hint="Address"
                 android:textColorHint="@color/md_red_300"
                 android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Address Label -->
+        <!-- Wieght Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:textColorHint="@color/md_red_300">
-            <EditText android:id="@+id/input_lastd"
+            <EditText android:id="@+id/input_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Last Donation"
+                android:inputType="number"
+                android:hint="Weight"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <!-- No of times donated Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
+            <EditText android:id="@+id/input_ndonations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="No of times Donated"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <TextView android:id="@+id/input_lastd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="16dip"
+            android:hint="Last Donated"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300"
+            android:textColor="@color/md_red_300"/>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/md_red_300"
+            android:text="Drinking habit"
+            android:id="@+id/input_drink"
+            />
+        <!-- DOB donated Label -->
+            <TextView android:id="@+id/input_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="D.O.B"
+                android:textSize="16dip"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColorHint="@color/md_red_300"
+                android:textColor="@color/md_red_300"/>
+        <!-- Age donated Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/md_red_300">
+            <EditText android:id="@+id/input_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Age"
                 android:textColorHint="@color/md_red_300"
                 android:textColor="@color/md_red_300"/>
         </android.support.design.widget.TextInputLayout>

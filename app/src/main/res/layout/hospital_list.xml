@@ -4,7 +4,7 @@ android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/accent"
     >
-    <include layout="@layout/toolbar"        />
+    <include layout="@layout/toolbar" />
     <ListView
     android:id="@android:id/list"
     android:layout_width="match_parent"
@@ -13,6 +13,6 @@ android:background="@color/accent"
     android:focusable="false"
     android:focusableInTouchMode="false"
     android:listSelector="#8fff"
-        android:divider="#95a5a6"
-        android:dividerHeight="4px"/>
+    android:divider="#95a5a6"
+    android:dividerHeight="4px"/>
 </LinearLayout>

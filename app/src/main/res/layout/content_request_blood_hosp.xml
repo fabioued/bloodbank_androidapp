@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.donars.srp.bloodbank.RequestBloodHosp"
+    tools:context="com.donars.srp.hosp.RequestBloodHosp"
     tools:showIn="@layout/activity_request_blood_hosp"
     android:weightSum="1">
 
@@ -25,38 +25,69 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Patient Name" />
+            android:hint="Doctor Name" />
     </android.support.design.widget.TextInputLayout>
 
-    <!-- Blood Requirement Label -->
+    <!-- Phone Label -->
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp">
-        <EditText android:id="@+id/input_bloodrequ"
+        <EditText android:id="@+id/input_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Phone" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!-- Age Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText android:id="@+id/input_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Age" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!-- Specalize Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText android:id="@+id/input_spl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Blood Requirement" />
+            android:hint="Specialization" />
     </android.support.design.widget.TextInputLayout>
+    <!-- Submit Button -->
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/input_date"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:text="Select Date"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:layout_weight="0.34"
+        android:layout_height="40dp" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/blood_group"
-        android:prompt="@string/blood_prompt" />
     <!-- Submit Button -->
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_submit"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:padding="12dp"
         android:text="Submit"
         android:clickable="false"
-        android:layout_weight="0.16" />
+        android:layout_height="40dp" />
 
 </LinearLayout>

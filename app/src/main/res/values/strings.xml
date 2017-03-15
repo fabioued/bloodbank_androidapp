@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blood Bank</string>
+    <string name="app_name">Hospital Appointment(Admin)</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
